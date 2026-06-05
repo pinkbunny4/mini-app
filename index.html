@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мой Telegram Mini App</title>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #17212b;
+    color: white;
+    padding: 50px;
+}
+
+button {
+    background: #2ea6ff;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Привет!</h1>
+<p>Это мой первый Telegram Mini App 🚀</p>
+
+<div id="user"></div>
+
+<button onclick="showMessage()">Нажми меня</button>
+
+<script>
+const tg = window.Telegram.WebApp;
+
+tg.ready();
+tg.expand();
+
+if (tg.initDataUnsafe.user) {
+    document.getElementById("user").innerHTML =
+        "Пользователь: " +
+        tg.initDataUnsafe.user.first_name;
+}
+
+function showMessage() {
+    tg.showAlert("Кнопка работает!");
+}
+</script>
+
+</body>
+</html>
